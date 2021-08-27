@@ -27,7 +27,7 @@ module.exports = {
 
 	PROJECT_MARK: 'reg',
 	PROJECT_NAME: 'CC校友登记平台',
-	PROJECT_VER: 'CCReg-Cloud(V1.0 Build20210807)', //升级必须，请勿修改
+	PROJECT_VER: 'CCReg-Cloud(V1.0 Build20210828)', //升级必须，请勿修改
 	PROJECT_SOURCE: 'https://gitee.com/minzonetech',
 
 	CCMINI_CLIENT_CHECK_CONTENT: true,

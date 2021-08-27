@@ -9,7 +9,7 @@
   	PROJECT_SWITCH: ['index_home', 'user_index', 'my_index', 'news_index', 'reg_step1'],
   	PROJECT_IS_SUB: false, // 分包
   	PROJECT_NAME: '校友登记系统',
-  	PROJECT_VER: 'CCReg-Client(V1.0 Build20210807)', //升级必须，请勿修改
+  	PROJECT_VER: 'CCReg-Client(V1.0 Build20210828)', //升级必须，请勿修改
   	PROJECT_NEWS_CATE: '公告通知',
 
   	TEST_MODE: false,
