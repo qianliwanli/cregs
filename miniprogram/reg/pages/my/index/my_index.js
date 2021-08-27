@@ -84,6 +84,10 @@ Page({
 			this._getUserInfo();
 
 		} else {
+			this.setData({
+				user: null
+			});
+			
 			// 未登录下  获取用户账号信息 
 			let params = {
 				fields: 'USER_TYPE,USER_PIC,USER_NAME,USER_ITEM,USER_PIC,USER_NAME,USER_SEX,USER_STATUS'
