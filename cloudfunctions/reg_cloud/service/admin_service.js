@@ -63,24 +63,13 @@ class AdminService extends BaseCCMiniService {
 		}
 	}
 
-	async adminLogin(cloudID) {
+	async adminLogin(name, password) {
 
-		let cloud = ccminiCloudBase.getCloud();
-		let res = await cloud.getOpenData({
-			list: [cloudID], // 假设 event.openData.list 是一个 CloudID 字符串列表
-		});
+		if (name != ccminiConfig.CCMINI_ADMIN_NAME)
+			this.ccminiAppError('管理员账号或密码不正确');
 
-		let phone = '';
-		if (res && res.list && res.list[0] && res.list[0].data) {
-			phone = res.list[0].data.phoneNumber;
-		} else
-			this.ccminiAppError('手机号码错误')
-
-		if (phone.length < 5)
-			this.ccminiAppError('手机号码错误');
-
-		if (phone != ccminiConfig.CCMINI_ADMIN_MOBILE)
-			this.ccminiAppError('管理员手机号码不正确');
+		if (password != ccminiConfig.CCMINI_ADMIN_PWD)
+			this.ccminiAppError('管理员账号或密码不正确');
 
 		// 判断是否存在
 		let where = {
@@ -98,21 +87,20 @@ class AdminService extends BaseCCMiniService {
 		let tokenTime = ccminiTimeUtil.time();
 		let data = {
 			ADMIN_TOKEN: token,
-			ADMIN_PHONE: ccminiConfig.CCMINI_ADMIN_MOBILE,
+			ADMIN_PHONE: ccminiConfig.CCMINI_ADMIN_NAME,
 			ADMIN_TOKEN_TIME: tokenTime,
 			ADMIN_LOGIN_TIME: ccminiTimeUtil.time(),
 			ADMIN_LOGIN_CNT: cnt + 1
 		}
 		await AdminModel.edit(where, data);
 
-		let name = admin.ADMIN_NAME;
 		let type = admin.ADMIN_TYPE;
 		let last = (!admin.ADMIN_LOGIN_TIME) ? '尚未登录' : ccminiTimeUtil.timestamp2Time(admin.ADMIN_LOGIN_TIME);
 
 
 		return {
 			token,
-			name,
+			name: admin.ADMIN_NAME,
 			type,
 			last,
 			cnt

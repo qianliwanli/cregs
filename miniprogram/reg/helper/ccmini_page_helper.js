@@ -283,13 +283,15 @@
  	if (type == 'switch' && CCMINI_SETTING.PROJECT_IS_SUB)
  		type = 'relaunch';
 
+
  	if (url && url.includes('pages')) {
  		if (url.indexOf('/') != 0) url = '/' + url;
 
- 		if (!url.includes(CCMINI_SETTING.PROJECT_MARK))
+ 		if (!url.includes('/' + CCMINI_SETTING.PROJECT_MARK))
  			url = '/' + CCMINI_SETTING.PROJECT_MARK + url;
  	}
  
+
  	if (type == 'redirect')
  		wx.redirectTo({
  			url
@@ -326,7 +328,7 @@
  	if (type == 'switch' && CCMINI_SETTING.PROJECT_IS_SUB)
  		type = 'relaunch';
 
- 	if (url && url.includes('pages')) {
+ 	if (url && url.includes('pages') && !url.includes('HOME')) {
  		if (url.indexOf('/') != 0) url = '/' + url;
 
  		if (!url.includes(CCMINI_SETTING.PROJECT_MARK))

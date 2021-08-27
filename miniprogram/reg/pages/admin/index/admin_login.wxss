@@ -1,4 +1,5 @@
 @import "../../../style/skin.wxss"; 
+
 .main {
 	width: 100%;
 	height: 100vh;
@@ -9,7 +10,7 @@
 }
 
 .main .login {
-	margin-top: 200rpx;
+	margin-top: 150rpx;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -18,10 +19,10 @@
 } 
 
 .main .login .kuang {
-	width: 500rpx;
+	width: 600rpx;
 	background-color: #fff;
-	height: 550rpx;
-	margin-top: 50rpx;
+	height: 750rpx;
+	margin-top: 0rpx;
 	border-radius: 20rpx;
 	display: flex;
 	flex-direction: column;
@@ -67,4 +68,8 @@
 	color: #fff;
 	display: flex;
 	flex-direction: column;
+}
+
+.form-group .title {
+	font-weight: normal;
 }

@@ -95,8 +95,8 @@ Page({
 			}
 
 			let callback = async function () {
-				ccminiBizHelper.removeCacheList('admin_news'); 
-				ccminiPageHelper.goto('admin_news_list');
+				ccminiBizHelper.removeCacheList('admin-news'); 
+				ccminiPageHelper.goto('admin_news_list', 'back');
 
 			}
 			ccminiPageHelper.showSuccToast('发布成功', 2000, callback);

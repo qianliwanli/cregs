@@ -139,6 +139,10 @@ class CCMiniModel {
 		return await ccminiDbUtil.getAll(this.CL, where, fields, orderBy, size);
 	}
 
+	static async rand( where = {}, fields = '*', size = 1) {
+		return await ccminiDbUtil.rand(this.CL, where, fields, size);
+	}
+
 	static async getList(where, fields, orderBy, page, size, isTotal, oldTotal) {
 		return await ccminiDbUtil.getList(this.CL, where, fields, orderBy, page, size, isTotal, oldTotal);
 	}

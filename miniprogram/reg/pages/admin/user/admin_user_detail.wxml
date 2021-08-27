@@ -12,9 +12,7 @@
 			<view class="desc text-darkgreen text-l">
 				<text user-select="true">班级：{{user.USER_ITEM}} ({{user.USER_ENROLL}}-{{user.USER_GRAD}})</text>
 			</view>
-			<view class="desc text-orange" bindtap="url" data-phone="{{user.USER_PHONE_CHECKED}}">
-				<text>已校验的手机号码：{{user.USER_PHONE_CHECKED}}</text><text class="icon-phone text-l"></text>
-			</view>
+		 
 			<view class="desc">
 				<text>性别：{{user.USER_SEX==1?'男':'女'}}</text>
 			</view>

@@ -228,6 +228,40 @@ async function getListJoin(collectionName, joinParams, where, fields, orderBy, p
 	return data;
 }
 
+async function rand(collectionName, where = {}, fields = '*', size = 1) {
+	collectionName = fmtCollectionName(collectionName);
+
+	size = Number(size);
+
+	if (size > MAX_RECORD_SIZE) size = MAX_RECORD_SIZE;
+
+
+	let query = await db.collection(collectionName)
+		.aggregate();
+
+	if (ccminiUtil.isDefined(where))
+		query = await query.match(fmtWhere(where));
+
+	if (ccminiUtil.isDefined(fields) && fields != '*')
+		query = await query.project(fmtFields(fields));
+
+
+	query = await query.sample({
+		size
+	});
+
+	query = await query.end();
+
+	if (size == 1) {
+		if (query.list.length == 1)
+			return query.list[0];
+		else
+			return null;
+	} else
+		return query.list;
+
+}
+
 async function getList(collectionName, where, fields = '*', orderBy = {}, page = 1, size = DEFAULT_RECORD_SIZE, isTotal = true, oldTotal = 0) {
 	collectionName = fmtCollectionName(collectionName);
 
@@ -454,6 +488,7 @@ module.exports = {
 	del,
 	count,
 	inc,
+	rand,
 	getOne,
 	getAll,
 	getList,

@@ -56,14 +56,15 @@ class AdminController extends CCMiniController {
 
 		// 数据校验
 		let rules = {
-			cloudID: 'required|string|min:1|max:200|name=cloudID',
+			name: 'required|string|min:6|max:30|name=管理员名',
+			pwd: 'required|string|min:6|max:30|name=密码',
 		};
 
 		// 取得数据
 		let input = this.ccminiValidateData(rules);
 
 		let service = new AdminService();
-		return await service.adminLogin(input.cloudID);
+		return await service.adminLogin(input.name, input.pwd);
 	}
 
 	async adminHome() {

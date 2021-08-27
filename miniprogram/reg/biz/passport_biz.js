@@ -62,6 +62,21 @@ class PassportBiz extends BaseCCMiniBiz {
 
 		await PassportBiz.setSetup(that);
 
+		wx.getSystemInfo({
+			success: e => { 
+				let customBar = 0;
+				let capsule = wx.getMenuButtonBoundingClientRect();
+				if (capsule) { 
+					customBar = capsule.bottom + capsule.top - e.statusBarHeight;
+				} else {
+					customBar = e.statusBarHeight + 50;
+				}
+				that.setData({
+					customBar
+				});
+			}
+		})
+
 	}
 
 	static initApp() {

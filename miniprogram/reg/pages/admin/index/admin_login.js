@@ -9,7 +9,9 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		name: CCMINI_SETTING.PROJECT_NAME,
+		projectName: CCMINI_SETTING.PROJECT_NAME,
+		name: '',
+		pwd: '',
 	},
 
 	/**
@@ -52,20 +54,28 @@ Page({
 	},
 
 	bindGetPhoneNumber: async function (e) {
-		if (e.detail.errMsg != "getPhoneNumber:ok") {
+		if (this.data.name.length < 6 || this.data.name.length > 30) {
 			wx.showToast({
-				title: '手机号码获取失败，请重启绑定手机号码',
+				title: '账号输入错误(6-30位)',
 				icon: 'none'
 			});
 			return;
 		}
 
-		let cloudID = e.detail.cloudID;
+		if (this.data.pwd.length < 6 || this.data.pwd.length > 30) {
+			wx.showToast({
+				title: '密码输入错误(6-30位)',
+				icon: 'none'
+			});
+			return;
+		}
+
 		let params = {
-			cloudID
+			name: this.data.name,
+			pwd: this.data.pwd
 		};
 		let opt = {
-			title: '验证中'
+			title: '登录中'
 		};
 
 		try {

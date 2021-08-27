@@ -71,7 +71,7 @@ class RegBiz extends BaseCCMiniBiz {
 	 */
 	static async registerStep2(e) {
 		wx.getUserProfile({
-			desc: '用于完善校友资料',
+			desc: '用于完善资料',
 			success: async (res) => {
 				let userInfo = res.userInfo;
 				if (!ccminiHelper.isDefined(userInfo) || !userInfo)
@@ -111,35 +111,9 @@ class RegBiz extends BaseCCMiniBiz {
 	 * @param {*} e 
 	 */
 	static async registerStep1(e) {
-		if (e.detail.errMsg == "getPhoneNumber:ok") {
-			let cloudID = e.detail.cloudID;
-			let params = {
-				cloudID
-			};
-			let opt = {
-				title: '验证中'
-			};
-			let phone = await ccminiCloudHelper.callCloudData('passport/phone', params, opt);
-			if (!phone || phone.length < 11)
-				wx.showToast({
-					title: '手机号码获取失败，请重新绑定手机号码',
-					icon: 'none',
-					duration: 4000
-				});
-			else {
-				// 存储 手机号码
-				RegBiz.setRegCache('phone', phone);
-				// 判断是否手机授权
- 
+		RegBiz.setRegCache('phone', '13900000000');
 				ccminiPageHelper.goto('reg_step2');
 			}
-		} else
-			wx.showToast({
-				title: '手机号码获取失败，请重启绑定手机号码',
-				icon: 'none'
-			});
-
-	}
 }
 RegBiz.CACHE_REG = 'CACHE_REG_INFO';
 
