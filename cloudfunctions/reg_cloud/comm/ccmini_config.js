@@ -13,8 +13,7 @@
  * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY www.code942.com
  * Date: 2021-08-02 19:20:00
  */
-module.exports = {
-	CCMINI_CLOUD_ID: 'card-8gdoyuexd3702a23', // 云服务id  
+module.exports = { 
 
 	CCMINI_ADMIN_NAME: 'ccadmin', // 管理员账号（6-30位)
 	CCMINI_ADMIN_PWD: '123456', // 管理员密码（6-30位)

@@ -20,7 +20,7 @@ const ccminiConfig = require('../../comm/ccmini_config.js');
 function getCloud() {
 	const cloud = require('wx-server-sdk');
 	cloud.init({
-		env: ccminiConfig.CCMINI_CLOUD_ID
+		env: cloud.DYNAMIC_CURRENT_ENV
 	});
 	return cloud;
 }

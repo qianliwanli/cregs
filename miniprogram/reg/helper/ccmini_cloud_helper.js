@@ -138,15 +138,36 @@
 
  				resolve(res.result);
  			},
- 			fail: function (res) {
- 				if (hint) {
+ 			fail: function (err) {
+ 				if (err && err.errMsg && err.errMsg.includes('-501000') && err.errMsg.includes('Environment not found')) {
+ 					wx.showModal({
+ 						title: '',
+ 						content: '云环境未创建或者未正确指定，请参考安装手册或者咨询官方',
+ 						showCancel: false
+ 					});
+
+ 				} else if (err && err.errMsg && err.errMsg.includes('-501000') && err.errMsg.includes('FunctionName')) {
+ 					wx.showModal({
+ 						title: '',
+ 						content: '云函数未创建或者未上传，请参考安装手册或者咨询官方',
+ 						showCancel: false
+ 					});
+
+ 				} else if (err && err.errMsg && err.errMsg.includes('-501000') && err.errMsg.includes('当前函数状态无法进行此操作')) {
+ 					wx.showModal({
+ 						title: '',
+ 						content: '云函数正在上传中或者上传有误，请稍候',
+ 						showCancel: false
+ 					});
+
+ 				} else if (hint) {
  					wx.showModal({
  						title: '',
  						content: '网络故障，请稍后重试',
  						showCancel: false
  					});
  				}
- 				reject(res.result);
+ 				reject(err.result);
  				return;
  			},
  			complete: function (res) {
