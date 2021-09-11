@@ -71,9 +71,9 @@
 
  
 
-- 打开cloudfunctions/school_cloud /comm/ccmini_config.js文件，配置环境ID和后台管理员账号和密码
+- 打开cloudfunctions/sport_cloud/comm/ccmini_config.js文件，配置后台管理员账号和密码
 
- ![输入图片说明](https://images.gitee.com/uploads/images/2021/0828/101826_cc2cf912_9645159.png "云函数-服务和管理配置.png")
+ ![输入图片说明](https://images.gitee.com/uploads/images/2021/0911/150146_a9af88e5_9240987.png "设置管理员账号.png")
 
 
  
