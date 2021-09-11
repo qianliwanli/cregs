@@ -1,4 +1,7 @@
+# 技术交流群（欢迎加入）
+- 开发交流，技术分享，问题答疑，功能建议收集，版本更新通知！
 
+ ![输入图片说明](https://images.gitee.com/uploads/images/2021/0908/070554_b2fd97c4_9240987.png "x.png")
 # 项目介绍
 
 
@@ -68,9 +71,9 @@
 
  
 
-- 打开cloudfunctions/reg_cloud/comm/ccmini_config.js文件，配置环境ID和后台管理员手机号码
+- 打开cloudfunctions/school_cloud /comm/ccmini_config.js文件，配置环境ID和后台管理员账号和密码
 
- ![输入图片说明](https://images.gitee.com/uploads/images/2021/0811/232806_b0477e47_9240987.png "云函数配置.png")
+ ![输入图片说明](https://images.gitee.com/uploads/images/2021/0828/101826_cc2cf912_9645159.png "云函数-服务和管理配置.png")
 
 
  
