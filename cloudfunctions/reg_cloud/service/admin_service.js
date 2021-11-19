@@ -274,26 +274,14 @@ class AdminService extends BaseCCMiniService {
 	}
 
 	async statusUser(id, status) {
-		status = Number(status)
-		let data = {
-			USER_STATUS: status
-		}
-		let where = {
-			'USER_MINI_OPENID': id
-		}
-		await UserModel.edit(where, data);
+		this.ccminiAppError('此功能暂不开放，如有需要请加作者微信：cclinux0730');
 
 
 
 	}
 
 	async delUser(id) {
-		let whereUser = {
-			USER_MINI_OPENID: id
-		}
-
-
-		UserModel.del(whereUser);
+		this.ccminiAppError('此功能暂不开放，如有需要请加作者微信：cclinux0730');
 
 
 
@@ -310,47 +298,11 @@ class AdminService extends BaseCCMiniService {
 		content
 	}) {
 
-		// 重复性判断
-		let where = {
-			NEWS_TITLE: title,
-		}
-		if (await NewsModel.count(where))
-			this.ccminiAppError('该标题已经存在');
-
-		// 赋值 
-		let data = {};
-		data.NEWS_TITLE = title;
-		data.NEWS_CONTENT = content;
-		data.NEWS_CATE = cate;
-		data.NEWS_DESC = ccminiStrUtil.fmtText(content, 100);
-
-		data.NEWS_ADMIN_ID = adminId;
-
-		let id = await NewsModel.insert(data);
-
-
-		return {
-			id
-		};
+		this.ccminiAppError('此功能暂不开放，如有需要请加作者微信：cclinux0730');
 	}
 
 	async delNews(id) {
-		let where = {
-			_id: id
-		}
-
-		// 取出图片数据
-		let news = await NewsModel.getOne(where, 'NEWS_PIC');
-		if (!news) return;
-
-		await NewsModel.del(where);
-
-		// 异步删除图片 
-		let cloudIds = ccminiStrUtil.getArrByKey(news.NEWS_PIC, 'cloudId');
-		ccminiCloudUtil.deleteFiles(cloudIds);
-
-
-		return;
+		this.ccminiAppError('此功能暂不开放，如有需要请加作者微信：cclinux0730');
 	}
 
 	async getNewsDetail(id) {
@@ -374,22 +326,7 @@ class AdminService extends BaseCCMiniService {
 		imgList
 	}) {
 
-		let newList = await ccminiCloudUtil.getTempFileURL(imgList);
-
-		let news = await NewsModel.getOne(newsId, 'NEWS_PIC');
-
-		let picList = await ccminiCloudUtil.handlerCloudFiles(news.NEWS_PIC, newList);
-
-		let data = {
-			NEWS_PIC: picList
-		};
-		await NewsModel.edit(newsId, data);
-
-		let urls = ccminiStrUtil.getArrByKey(picList, 'url');
-
-		return {
-			urls
-		};
+		this.ccminiAppError('此功能暂不开放，如有需要请加作者微信：cclinux0730');
 
 	}
 
@@ -402,20 +339,7 @@ class AdminService extends BaseCCMiniService {
 		desc
 	}) {
 
-		let where = {
-			NEWS_TITLE: title,
-			_id: ['<>', id]
-		}
-		if (await NewsModel.count(where))
-			this.ccminiAppError('该标题已经存在');
-
-		let data = {};
-		data.NEWS_TITLE = title;
-		data.NEWS_CATE = cate;
-		data.NEWS_CONTENT = content;
-		data.NEWS_DESC = ccminiStrUtil.fmtText(desc, 100);
-
-		await NewsModel.edit(id, data);
+		this.ccminiAppError('此功能暂不开放，如有需要请加作者微信：cclinux0730');
 	}
 
 	async getNewsList({
@@ -472,21 +396,11 @@ class AdminService extends BaseCCMiniService {
 	}
 
 	async statusNews(id, status) {
-		let data = {
-			NEWS_STATUS: status
-		}
-		let where = {
-			_id: id,
-		}
-		return await NewsModel.edit(where, data);
+		this.ccminiAppError('此功能暂不开放，如有需要请加作者微信：cclinux0730');
 	}
 
 	async sortNews(id, sort) {
-		sort = Number(sort)
-		let data = {
-			NEWS_ORDER: sort
-		}
-		await NewsModel.edit(id, data);
+		this.ccminiAppError('此功能暂不开放，如有需要请加作者微信：cclinux0730');
 	}
 
 }
