@@ -42,7 +42,7 @@ class AdminService extends BaseCCMiniService {
 		}
 		let admin = await AdminModel.getOne(where);
 		if (!admin)
-			this.ccminiAppError('管理员不存在', ccminiAppCode.ADMIN_ERROR);
+			this.ccminiAppError('当前管理员不存在', ccminiAppCode.ADMIN_ERROR);
 
 		return admin;
 	}
