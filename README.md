@@ -67,14 +67,7 @@
 - 本项目使用到了一个云函数reg_cloud
 ![输入图片说明](https://images.gitee.com/uploads/images/2021/0811/232556_f00b3f17_9240987.png "云函数出示0.png")
 
-
-- 在云函数cloudfunctions文件夹下选择云函数reg_cloud , 右键选择在终端中打开,然后执行 
-- npm install –product
-![输入图片说明](https://images.gitee.com/uploads/images/2021/0811/232701_836c8850_9240987.png "云函数初始化1.png") 
-
-![输入图片说明](https://images.gitee.com/uploads/images/2021/0811/232711_58121526_9240987.png "云函数初始化.png")
-
--  **如提示npm无法识别，请先恶补npm和node.js基础知识：https://www.runoob.com/nodejs/nodejs-npm.html** 
+ 
  
 
 - 打开cloudfunctions/sport_cloud/comm/ccmini_config.js文件，配置后台管理员账号和密码
@@ -91,7 +84,12 @@
  ![输入图片说明](https://images.gitee.com/uploads/images/2021/0811/232832_6053aae0_9240987.png "客户端配置.png")
 
 
-#### 5  云函数配置
+ 
+#### 5  上传云函数&指定云环境ID
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0811/235027_bcc3d94b_9240987.png "上传.png")
+
+
+#### 6  云函数配置
 - 在微信开发者工具-》云开发-》云函数-》对指定的函数添加环境变量 
 - [服务端时间时区TZ] =>Asia/Shanghai
 - [函数内存] =>128M   
@@ -99,17 +97,6 @@
 ![输入图片说明](https://images.gitee.com/uploads/images/2021/0811/233416_4497ac7b_9240987.png "云函数配置参数.png")
 
  
-
-#### 6  设置图片域名信任关系
-- 进入小程序 开发管理=》开发设置=》服务器域名 =》downloadFile合法域名	
-- 添加2个域名：
-- 1）你的云存储域名，格式类似：https://1234-test-pi5po-1250248.tcb.qcloud.la
-- 2）微信头像域名：https://thirdwx.qlogo.cn 
-![输入图片说明](https://images.gitee.com/uploads/images/2021/0811/233716_fccfac0e_9240987.png "业务域名.png")
-
-#### 7  上传云函数&指定云环境ID
-![输入图片说明](https://images.gitee.com/uploads/images/2021/0811/235027_bcc3d94b_9240987.png "上传.png")
-
 ### 至此完全部署配置完毕。
 
 ### 在线演示：
