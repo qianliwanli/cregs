@@ -1,4 +1,4 @@
-<h3 align="center" style="margin: 30px 0 30px;font-weight: bold;font-size:40px;">CC校友登记小程序</h3>
+<h2 align="center" style="margin: 30px 0 30px;font-weight: bold;font-size:40px;">CC校友登记小程序</h2>
 
 ## 项目说明
 
